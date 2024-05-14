@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+    metabeemGateway:
+        container_name: metabeem-gateway
+        hostname: metabeem-gateway
+        build:
+            context: .
+        image: metabeem-gateway:latest
+        logging:
+          options:
+            max-size: "100m"
+            max-file: "5"
+        restart: always
+        ports:
+            - "80:80"
+            - "443:443"
+        #    volumes:
+        #      - ./nginx.conf:/etc/nginx/nginx.conf
+        #      - ./nginx.htpasswd:/etc/nginx/auth/nginx.htpasswd
+        #env_file:
+        #  - ./.env
